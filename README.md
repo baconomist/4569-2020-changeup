@@ -22,3 +22,16 @@ Write down all the clion cmake setup instructions here like going into build->cm
 Maybe download cmake? Or using visual studio environment inside clion is probs good enough...
 
 Have to set robot cmake->toolchain->gcc by using cygwin as toolchain or mingw...
+
+
+# PROS
+If you get an error like "No rule to make target 'path/foo.ccp', needed by 'foo.o'. Stop." Then you must have changed the
+PROS src/ dir and need to for some reason do a project search for the path its complaining about "path/foo.cpp" and replace
+it with the correct path
+
+
+# Project Structure
+* **robot/** --> Abstract Robot Code Via A SharedAPI. (Depends on sim/non-sim build in globals.h)
+* **robot_api/** --> PROS Robot API Code
+* **shared_api/** --> A Shared Api header Lib
+* **simulator_api/** --> Unity Simulator Code
