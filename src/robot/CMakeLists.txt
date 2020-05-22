@@ -24,6 +24,6 @@ endforeach()
 list(REMOVE_DUPLICATES INCLUDE_DIRS)
 
 include_directories(Robot "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
-add_library(Robot ${SOURCES} ${HEADERS} ${CMAKE_CURRENT_SOURCE_DIR})
+add_executable(Robot ${SOURCES} ${HEADERS} ${CMAKE_CURRENT_SOURCE_DIR})
 #add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR} COMMAND prosv5 mut)
 #add_executable(VexRobot ${SOURCES} ${HEADERS} src/ examples/)
