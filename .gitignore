@@ -19,9 +19,6 @@ include/
 project.pros
 common.mk
 
-# CLION
-.idea/
-
 # Build
 cmake-build-debug/
 cmake-build-default/

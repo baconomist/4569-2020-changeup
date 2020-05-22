@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CLionExternalBuildManager">
+    <target id="2b6a92d8-f3e2-4209-9256-bb77eb36ed92" name="Pros V5" projectName="RobotCode">
+      <configuration id="0bd588e2-035e-4c78-bab1-1d71f7d4c235" name="Pros V5">
+        <build type="TOOL">
+          <tool actionId="Tool_External Tools_ProsV5" />
+        </build>
+      </configuration>
+    </target>
+  </component>
+</project>
