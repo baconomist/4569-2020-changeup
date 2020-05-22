@@ -9,3 +9,13 @@
 
 # PROS INSTALLATION
  ####DO NOT COMMIT PROS LIB FILES
+ 
+
+# Simulator Setup (TODO)
+1. Create a unity project
+2. Install this Unity plugin: https://github.com/mcpiroman/UnityNativeTool
+
+Setup a clean-slate robot repo for people to clone and build...
+
+Write down all the clion cmake setup instructions here like going into build->cmake and adding -G "visual studio..."
+Maybe download cmake? Or using visual studio environment inside clion is probs good enough...
