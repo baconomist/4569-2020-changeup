@@ -3,3 +3,7 @@
 //
 
 #pragma once
+
+namespace shared_robot_interface {
+    void move_voltage();
+}

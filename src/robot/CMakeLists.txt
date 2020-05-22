@@ -5,25 +5,25 @@ set(SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/src/*) # Create var "SOURCE_FILES",
 set(DCMAKE_SH="CMAKE_SH-NOTFOUND")
 
 cmake_minimum_required(VERSION ${VERSION})
-project(Robot CXX)
+project(Robot CXX C)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_C_STANDARD 11)
+set(CMAKE_CXX_STANDARD 17)
+# https://docs.microsoft.com/en-us/cpp/build/reference/compiler-option-warning-level?view=vs-2019
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall")
 
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c")
-file(GLOB_RECURSE SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp")
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h")
-file(GLOB_RECURSE HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp")
-
-set (INCLUDE_DIRS "")
-foreach (_headerFile ${HEADERS})
-    get_filename_component(_dir ${_headerFile} PATH)
-    list (APPEND INCLUDE_DIRS ${_dir})
-endforeach()
-
-list(REMOVE_DUPLICATES INCLUDE_DIRS)
+file(GLOB SOURCES "src/*.c" "src/*.h" "src/*.cpp" "src/*.hpp")
 
 include_directories(Robot "${CMAKE_CURRENT_SOURCE_DIR}/../../include")
-add_executable(Robot ${SOURCES} ${HEADERS} ${CMAKE_CURRENT_SOURCE_DIR})
+add_library(Robot ${SOURCES} ${INCLUDES} ${CMAKE_CURRENT_SOURCE_DIR})
+
+# https://stackoverflow.com/questions/28597351/how-do-i-add-a-library-path-in-cmake
+# https://stackoverflow.com/questions/38858275/how-to-import-a-file-to-cmake-in-c
+# Add firmware/ libraries
+target_link_libraries(Robot exec "${CMAKE_CURRENT_SOURCE_DIR}/../../firmware/libpros.a")
+target_link_libraries(Robot exec "${CMAKE_CURRENT_SOURCE_DIR}/../../firmware/okapilib.a")
+target_link_libraries(Robot exec "${CMAKE_CURRENT_SOURCE_DIR}/../../firmware/libm.a")
+target_link_libraries(Robot exec "${CMAKE_CURRENT_SOURCE_DIR}/../../firmware/libc.a")
+
+
 #add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR} COMMAND prosv5 mut)
-#add_executable(VexRobot ${SOURCES} ${HEADERS} src/ examples/)
