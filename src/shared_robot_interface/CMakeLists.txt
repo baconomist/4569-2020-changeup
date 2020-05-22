@@ -13,4 +13,4 @@ file(GLOB SOURCES "src/*.c" "src/*.h" "src/*.cpp" "src/*.hpp")
 
 # Enable DLL build w/ option() and SHARED flag in add_library()
 option(MyLib_SHARED_LIBS "" ON)
-add_library(SharedRobotInterface SHARED ${SOURCES})
+add_library(SharedRobotInterface SHARED ${SOURCES} ${CMAKE_CURRENT_SOURCE_DIR})

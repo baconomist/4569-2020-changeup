@@ -22,7 +22,7 @@ file(GLOB SOURCES "src/*.c" "src/*.h" "src/*.cpp" "src/*.hpp")
 
 # Enable DLL build w/ option() and SHARED flag in add_library()
 option(MyLib_SHARED_LIBS "" ON)
-add_library(Simulator SHARED ${SOURCES})
+add_library(Simulator SHARED ${SOURCES} ${CMAKE_CURRENT_SOURCE_DIR})
 
 # Remove "cyg" prefix
 set_target_properties(Simulator PROPERTIES PREFIX "")
