@@ -20,9 +20,6 @@ project.pros
 common.mk
 
 # Build
-cmake-build-debug/
-cmake-build-default/
-cmake-build-robot/
-cmake-build-simulatorvscompile/
+cmake-build-*/
 Debug/
 *.suo
