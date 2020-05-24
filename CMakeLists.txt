@@ -4,26 +4,38 @@ set(DCMAKE_SH="CMAKE_SH-NOTFOUND")
 
 cmake_minimum_required(VERSION ${VERSION})
 
-if(${CMAKE_PROFILE} MATCHES "RobotCompile")
+if (${CMAKE_PROFILE} MATCHES "RobotCompile")
     include(toolchain.cmake)
-endif()
+endif ()
 
 project(RobotCode CXX C)
 
 set(CMAKE_C_STANDARD 11)
 set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS}")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 # https://docs.microsoft.com/en-us/cpp/build/reference/compiler-option-warning-level?view=vs-2019
-if(MSVC)
+if (MSVC)
     add_compile_options(/W4 /WX /W2 /wd4514 /Od /ZI /Zi)
     MESSAGE("USING MSVC; Using Cmake Profile: ${CMAKE_PROFILE}")
-else()
+else ()
     add_compile_options(-pedantic -Werror -ffunction-sections -fdata-sections -fdiagnostics-color -funwind-tables)
     MESSAGE("USING GCC; Using Cmake Profile: ${CMAKE_PROFILE}")
-endif()
+endif ()
 
-# Add sub projects
+# # # # # # # # # # # # # # #
+# # # Add sub projects # # #
+# # # # # # # # # # # # # #
+
 add_subdirectory("shared_api")
-add_subdirectory("simulator_api")
-add_subdirectory("robot_api")
+
+# Can only compile SimulatorAPI with MSVC(Visual Studio Microsoft Compiler)
+if (MSVC)
+    add_subdirectory("simulator_api")
+# Can only compiler RobotAPI w/ ARM GCC Compiler
+else ()
+    add_subdirectory("robot_api")
+endif ()
+# Robot can be built with either since its an abstract API
 add_subdirectory("robot")
+
+
