@@ -35,3 +35,17 @@ it with the correct path
 * **robot_api/** --> PROS Robot API Code
 * **shared_api/** --> A Shared Api header Lib
 * **simulator_api/** --> Unity Simulator Code
+
+# COMPILING FOR ROBOT
+1. COMPILE CMAKE ROBOT
+2. COPY libRobot.a from build dir
+3. MOVE libRobot.a into PROS firmware dir TODO: MAKE A SCRIPT FOR THIS
+4. COMPILE/UPLOAD PROS
+
+# ARM COMPILER STUFF
+* Vex Brain Architecture "ARM 7": https://www.vexrobotics.com/276-4810.html#Product_Specs
+* ARM COMPILER DOWNLOAD: https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/gnu-rm
+* ******************** **USE MINGW** ******************** CYGWIN **DOES NOT** WORK DUE TO IT APPENDING /cygdrive/c/ to paths when calling the compiler
+* INSIDE CLION, FOR MINGW TOOLCHAIN, SET COMPILER TO THE DOWNLOADED ARM COMPILER
+* '--specs=nosys.specs' is used to prevent compiler errors related to undefined _exit. This is since on ARM platforms,
+such standard methods don't exist as they do on computers or something like that... --> https://stackoverflow.com/questions/19419782/exit-c-text0x18-undefined-reference-to-exit-when-using-arm-none-eabi-gcc

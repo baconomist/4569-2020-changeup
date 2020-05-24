@@ -9,7 +9,7 @@ CXXEXTS:=cpp c++ cc
 ROOT=.
 FWDIR:=$(ROOT)/firmware
 BINDIR=$(ROOT)/bin
-SRCDIR=$(ROOT)/robot_api
+SRCDIR=$(ROOT)/robot_api/src
 INCDIR=$(ROOT)/include
 # Found this var in common.mk
 EXTRA_INCDIR=$(ROOT)/shared_api/include
