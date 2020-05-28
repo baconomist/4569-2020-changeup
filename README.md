@@ -49,3 +49,6 @@ it with the correct path
 * INSIDE CLION, FOR MINGW TOOLCHAIN, SET COMPILER TO THE DOWNLOADED ARM COMPILER
 * '--specs=nosys.specs' is used to prevent compiler errors related to undefined _exit. This is since on ARM platforms,
 such standard methods don't exist as they do on computers or something like that... --> https://stackoverflow.com/questions/19419782/exit-c-text0x18-undefined-reference-to-exit-when-using-arm-none-eabi-gcc
+
+# STUDENT PACK
+I would suggest you get this if you are a student: https://education.github.com/pack
