@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Robot Pros Compile" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RobotCode" TARGET_NAME="Pros V5" CONFIG_NAME="Pros V5">
+  <configuration default="false" name="Robot Pros Compile" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="RobotCode" TARGET_NAME="Pros V5" CONFIG_NAME="Pros V5" RUN_PATH="$PROJECT_DIR$/FakeExecutable.txt">
     <method v="2">
       <option name="CLION.EXTERNAL.BUILD" enabled="true" />
     </method>

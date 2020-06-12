@@ -2,7 +2,7 @@
   <tool name="ProsV5" showInMainMenu="false" showInEditor="false" showInProject="false" showInSearchPopup="false" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
     <exec>
       <option name="COMMAND" value="prosv5" />
-      <option name="PARAMETERS" value="mut" />
+      <option name="PARAMETERS" value="mut --project $FileDir$" />
       <option name="WORKING_DIRECTORY" value="$ProjectFileDir$" />
     </exec>
   </tool>
