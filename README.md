@@ -23,6 +23,28 @@ Maybe download cmake? Or using visual studio environment inside clion is probs g
 
 Have to set robot cmake->toolchain->gcc by using cygwin as toolchain or mingw...
 
+**EXTERNAL TOOLS FOR PROS $ProjectFileDir$ Macro DOES NOT WORK**
+
+___
+There are also for some reason 2 separate external tool sections:
+```
+- settings->external tools
+- settings->custom build configs->build tool->[...] button
+```
+___
+
+###Run Configurations
+```
+- Robot -> Run this to build libRobot.a and later automatically call PROS
+
+- RobotAPI -> Switch to this when developing for RobotAPI for proper Intellisense, CANNOT RUN
+
+- SimulatorAPI -> Switch to and RUN when developing for simulator
+
+- Robot Pros Compile -> Already run by "Robot" config, but if you want to JUST RUN PROS, then RUN this config 
+```
+
+_**FakeExecutable.txt**_ --> Used to trick CLion into launching configs without actual c++ executables (ie Robot, Robot Pros Compile)
 
 # PROS
 If you get an error like "No rule to make target 'path/foo.ccp', needed by 'foo.o'. Stop." Then you must have changed the
