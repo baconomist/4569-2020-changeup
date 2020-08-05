@@ -1,0 +1,8 @@
+[submodule "robot"]
+	url = https://github.com/baconomist/robot
+[submodule "robot_api"]
+	url = https://github.com/baconomist/robot_api
+[submodule "shared_api"]
+	url = https://github.com/baconomist/shared_api
+[submodule "simulator_api"]
+	url = https://github.com/baconomist/simulator_api
