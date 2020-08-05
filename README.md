@@ -33,6 +33,8 @@ There are also for some reason 2 separate external tool sections:
 ```
 ___
 
+NOTE: sometimes CLion Intellisense seems to stop working, so far the best workaround is to just restart it :)
+
 ###Run Configurations
 ```
 - Robot -> Run this to build libRobot.a and later automatically call PROS
@@ -59,9 +61,9 @@ it with the correct path
 * **simulator_api/** --> Unity Simulator Code
 
 # COMPILING FOR ROBOT
-1. COMPILE CMAKE ROBOT
-2. COPY libRobot.a from build dir
-3. MOVE libRobot.a into PROS firmware dir TODO: MAKE A SCRIPT FOR THIS
+1. COMPILE CMAKE ROBOT_API
+2. COPY libRobotAPI.a from build dir
+3. MOVE(or symlink) libRobotAPI.a into PROS firmware dir TODO: MAKE A SCRIPT FOR THIS
 4. COMPILE/UPLOAD PROS
 
 # ARM COMPILER STUFF
@@ -74,3 +76,29 @@ such standard methods don't exist as they do on computers or something like that
 
 # STUDENT PACK
 I would suggest you get this if you are a student: https://education.github.com/pack
+
+
+# !(IMPORTANT FOR INTELLISENSE)!
+### CMAKE PROFILES
+* **RobotCompile** --> Used in Robot, RobotAPI
+* **SimulatorVSCompile** --> Used in SimulatorAPI
+### Misc
+* Refrain from using **DASHES** or **SPACES** in directory names, this causes intellisense errors with MSVC 
+
+# Simulator Debugging/Unity Crashing
+1. Unity crashes
+2. Click on Windows debug option
+3. https://stackoverflow.com/questions/50905878/how-to-get-the-stacktrace-of-a-dll-who-crashes
+##### or
+1. Open visual studio
+2. Attach debugger to Unity.exe
+3. Wait for crash
+4. Change VisualStudio stackFrame to __CPPSimulatorAPI.dll!::{SomeNamespaceYouRecognizeHere}
+5. https://stackoverflow.com/questions/50905878/how-to-get-the-stacktrace-of-a-dll-who-crashes
+6. ! REMEMBER TO ADD "__CPPSimulatorAPI.pdb" as a SYMBOL IN VS
+
+### Breakpoints(Works only with MSVC for now)
+```
+#include "shared_robot_api.h"
+shared_api::__debugbreakpoint();
+```

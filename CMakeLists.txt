@@ -16,7 +16,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 # https://docs.microsoft.com/en-us/cpp/build/reference/compiler-option-warning-level?view=vs-2019
 if (MSVC)
     # https://stackoverflow.com/questions/31639611/c-callstack-on-windows-access-violation /EHa tells compiler to handle SEH exceptions as standard try/catch
-    add_compile_options(/W4 /W2 /wd4514 /Od /ZI /Zi)
+    add_compile_options(/W4 /W2 /wd4514 /Od /ZI /Zi /DEBUG)
     MESSAGE("USING MSVC; Using Cmake Profile: ${CMAKE_PROFILE}")
 else ()
     add_compile_options(-pedantic -Werror -ffunction-sections -fdata-sections -fdiagnostics-color -funwind-tables)
